@@ -57,9 +57,6 @@ function validationMailForm (title, expediteur, message)
 
 $(document).ready(function () {
 
-    // base url :
-    var baseUrl = $('#baseUrl')[0].value;
-
     // Icones header :
     var profile = $('#IcnProfile');
     var projects = $('#IcnProjects');
@@ -77,23 +74,23 @@ $(document).ready(function () {
 
     // Click mode-apparence (header) : 
     // ----------------------------------------------------------------------------------
-    apparence.on('click', function () {
-        console.log(apparence[0].icon)
-        if (apparence[0].icon == 'material-symbols:bedtime') {
-            window.location.href = baseUrl+'/light';
-        } else if (apparence[0].icon == 'mingcute:light-line') {
-            window.location.href = baseUrl+'/';
-        }
-    });
+    // apparence.on('click', function () {
+    //     console.log(apparence[0].icon)
+    //     if (apparence[0].icon == 'material-symbols:bedtime') {
+    //         window.location.href = '/light';
+    //     } else if (apparence[0].icon == 'mingcute:light-line') {
+    //         window.location.href = '/';
+    //     }
+    // });
     // Click Profile (header) :
     // ----------------------------------------------------------------------------------
     profile.on('click', function () {
         // Profil cuisinier 
         if (profile[0].icon == 'icon-park-twotone:chef-hat') {
-            lienProfile[0].href = baseUrl+'#ProfileCuisine';
+            lienProfile[0].href = '#ProfileCuisine';
         // Profil développeur 
         } else {
-            lienProfile[0].href = baseUrl+'#Profile';
+            lienProfile[0].href = '#Profile';
         }
     });
 
@@ -102,10 +99,10 @@ $(document).ready(function () {
     projects.on('click', function () {
         // Profil cuisiner
         if (profile[0].icon == 'icon-park-twotone:chef-hat') {
-            lienProjects[0].href = baseUrl+'#Creations';
+            lienProjects[0].href = '#Creations';
         // Profil développeur
         } else {
-            lienProjects[0].href = baseUrl+'#Projects';
+            lienProjects[0].href = '#Projects';
         }
     });
 
@@ -113,27 +110,27 @@ $(document).ready(function () {
     // ----------------------------------------------------------------------------------   
     $('#imgProfil').on('mouseenter', function () {
         // Si profil cuisine actif :
-        if (photoProfil[0].src == baseUrl+'public/img/my_logo_cuisine.JPG') {
+        if (photoProfil[0].src === 'public/img/my_logo_cuisine.JPG') {
             photoProfil.fadeOut(150, function() {
-            photoProfil.attr('src', baseUrl+'public/img/my_logo_cuisine_real.JPG');
+            photoProfil.attr('src', 'public/img/my_logo_cuisine_real.JPG');
             photoProfil.fadeIn(150);
             });
-        } else {
+        } else if (photoProfil[0].src === 'public/img/my_logo.png') {
             photoProfil.fadeOut(150, function() {
-            photoProfil.attr('src', baseUrl+'public/img/my_logo_real.png');
+            photoProfil.attr('src', 'public/img/my_logo_real.png');
             photoProfil.fadeIn(150);
             });
         }
         $('#imgProfil').on('mouseleave', function () {
             // Si profil developpeur actif :
-            if (photoProfil[0].src == baseUrl+'public/img/my_logo_cuisine_real.JPG') {
+            if (photoProfil[0].src === 'public/img/my_logo_cuisine_real.JPG') {
                 photoProfil.fadeOut(150, function() {
-                photoProfil.attr('src', baseUrl+'public/img/my_logo_cuisine.JPG');
+                photoProfil.attr('src', 'public/img/my_logo_cuisine.JPG');
                 photoProfil.fadeIn(150);
                 }); 
-            } else {
+            } else if (photoProfil[0].src === 'public/img/my_logo_real.png') {
                 photoProfil.fadeOut(150, function() {
-                photoProfil.attr('src', baseUrl+'public/img/my_logo.png');
+                photoProfil.attr('src', 'public/img/my_logo.png');
                 photoProfil.fadeIn(150);
                 });
             }
@@ -151,7 +148,7 @@ $(document).ready(function () {
             $('#ProfileCuisine').fadeIn();
             $('#Creations').fadeIn();
             $('#titleHome').text("Cuisiner en reconversion");
-            photoProfil[0].src = baseUrl+'public/img/my_logo_cuisine.JPG';
+            photoProfil[0].src = 'public/img/my_logo_cuisine.JPG';
             $("html, body").animate({ scrollTop: 0 }, "slow");
         }, 300);
     });
@@ -181,7 +178,7 @@ $(document).ready(function () {
             $('#Profile').fadeIn();
             $('#Projects').fadeIn();
             $('#titleHome').text("Développeur Web");
-            photoProfil[0].src = baseUrl+'public/img/my_logo.png';
+            photoProfil[0].src = 'public/img/my_logo.png';
             $("html, body").animate({ scrollTop: 0 }, "slow");
         }, 300);
     });
@@ -205,7 +202,7 @@ $(document).ready(function () {
         // validation :
         if (validationMailForm(title, expediteur, message)) {
             // ajax :
-            let url = baseUrl+'app/php/sendMail';
+            let url = 'app/php/sendMail';
             let data = {
                 expediteur: expediteur,
                 titre: title,
