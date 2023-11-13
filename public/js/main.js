@@ -150,6 +150,7 @@ $(document).ready(function () {
             $('#titleHome').text("Cuisiner en reconversion");
             photoProfil[0].src = 'public/img/my_logo_cuisine.JPG';
             $("html, body").animate({ scrollTop: 0 }, "slow");
+            $('#lienIcnBackProfile').fadeIn();
         }, 300);
     });
 
@@ -180,9 +181,26 @@ $(document).ready(function () {
             $('#titleHome').text("Développeur Web");
             photoProfil[0].src = 'public/img/my_logo.png';
             $("html, body").animate({ scrollTop: 0 }, "slow");
+            $('#lienIcnBackProfile').fadeOut();
         }, 300);
-    });
 
+    });
+    // Click sur le bouton : Retour au profil développeur (header) :
+    // ----------------------------------------------------------------------------------
+    $('#IcnBackProfile').on('click', function () {
+        setTimeout(function () {
+            profile[0].icon = 'mdi:user-outline';
+            projects[0].icon = 'material-symbols:work-outline';
+            $('#ProfileCuisine').fadeOut();
+            $('#Creations').fadeOut();
+            $('#Profile').fadeIn();
+            $('#Projects').fadeIn();
+            $('#titleHome').text("Développeur Web");
+            photoProfil[0].src = 'public/img/my_logo.png';
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            $('#lienIcnBackProfile').fadeOut();
+        }, 300);
+    })
     // Click sur le bouton contactez-moi (header) :
     // ----------------------------------------------------------------------------------
     $('#ContactMe').on('click', function () {

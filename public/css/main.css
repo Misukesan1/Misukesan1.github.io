@@ -8,6 +8,7 @@
 }
 .txt-red {
     color: #6C0000;
+
 }
 /* _________________________________________________________________________________________________________ */
 
@@ -91,7 +92,9 @@ iconify-icon.hover:hover {
 /* _________________________________________________________________________________________________________ */
 
 /* HOVERS */
-
+#btnProfilDeveloppeur {
+    width: 30rem;
+}
 #ContactMe:hover, #btnVoirMesExperiences:hover, #btnProfilDeveloppeur:hover {
     cursor: pointer;
     color: #55567c;
