@@ -147,6 +147,11 @@ div.cadre-projet-img:hover {
     border-radius: 150px;
 }
 
+.marges p {
+    margin: 0;
+    padding: 0;
+}
+
 /* _________________________________________________________________________________________________________ */
 
 /* SECTION PROFILE CUISINE */
